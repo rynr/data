@@ -31,3 +31,12 @@ To get all values, use:
     curl http://localhost:8080/series/Temperature
 
 The resulting documents are filled with HATEOAS links, so it should be easy to understand the structure.
+
+Links
+-----
+
+ - [Info](https://rynr.github.io/data/)
+ - [Github](https://github.com/rynr/data)
+ - [Bugs](https://github.com/rynr/data/issues)
+ - [![Build Status](https://travis-ci.org/rynr/data.svg?branch=master)](https://travis-ci.org/rynr/data)
+
