@@ -1,5 +1,8 @@
 package org.rjung.data.resources;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 import org.rjung.data.object.Data;
 import org.rjung.data.object.Series;
 import org.rjung.data.repository.DataRepository;
@@ -41,7 +44,12 @@ public class DataResource {
 			@PageableDefault(sort = "timestamp", direction = Direction.DESC, size = 250) Pageable page,
 			PagedResourcesAssembler<Data> assembler) {
 		LOG.error("data/" + series + " (" + page + ")");
-		return assembler.toResource(data.findBySeriesName(series, page));
+		PagedResources<Resource<Data>> resources = assembler.toResource(data
+				.findBySeriesName(series, page));
+		resources.add(linkTo(
+				methodOn(SeriesResource.class).getSeriesIndex(null, null))
+				.withRel("up"));
+		return resources;
 	}
 
 	@RequestMapping(value = "series/{series}", method = RequestMethod.POST)
