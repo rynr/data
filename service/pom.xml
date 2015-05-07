@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>data-service</artifactId>
 	<packaging>jar</packaging>
-	<name>Kicker Application</name>
+	<name>Generic Data Storage Application - RestService</name>
 	<url>http://rynr.github.io/data</url>
 	<parent>
 		<groupId>org.rjung.app</groupId>
