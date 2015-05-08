@@ -43,7 +43,7 @@ public class DataResource {
 			@PathVariable("series") String series,
 			@PageableDefault(sort = "timestamp", direction = Direction.DESC, size = 250) Pageable page,
 			PagedResourcesAssembler<Data> assembler) {
-		LOG.error("data/" + series + " (" + page + ")");
+		LOG.error("GET /series/" + series + " (" + page + ")");
 		PagedResources<Resource<Data>> resources = assembler.toResource(data
 				.findBySeriesName(series, page));
 		resources.add(linkTo(
@@ -55,6 +55,7 @@ public class DataResource {
 	@RequestMapping(value = "series/{series}", method = RequestMethod.POST)
 	public Data createData(@PathVariable("series") String name,
 			@RequestBody Data data) {
+		LOG.error("POST /series/" + series + " (" + data + ")");
 		Series series = this.series.findByName(name);
 		data.setSeries(series);
 		if (data.getTimestamp() == null) {

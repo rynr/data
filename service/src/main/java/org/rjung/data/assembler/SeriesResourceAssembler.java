@@ -1,4 +1,4 @@
-package org.rjung.data;
+package org.rjung.data.assembler;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
