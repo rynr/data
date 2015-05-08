@@ -64,7 +64,8 @@ public class Data {
 
 	@Override
 	public String toString() {
-		return "Data [id=" + id + ", series=\"" + series.getName()
+		return "Data [id=" + id + ", series=\""
+				+ (series == null ? "null" : series.getName())
 				+ "\", timestamp=" + timestamp + ", value=" + value + "]";
 	}
 }

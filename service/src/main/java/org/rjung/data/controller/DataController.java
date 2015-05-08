@@ -55,7 +55,7 @@ public class DataController {
 	@RequestMapping(value = "series/{series}", method = RequestMethod.POST)
 	public Data createData(@PathVariable("series") String name,
 			@RequestBody Data data) {
-		LOG.error("POST /series/" + series + " (" + data + ")");
+		LOG.error("POST /series/" + name + " (" + data + ")");
 		Series series = this.series.findByName(name);
 		data.setSeries(series);
 		if (data.getTimestamp() == null) {

@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
@@ -40,7 +42,8 @@ public class SeriesController {
 
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "series", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public PagedResources<Resource> getSeriesIndex(Pageable page,
+	public PagedResources<Resource> getSeriesIndex(
+			@PageableDefault(sort = { "name" }, direction = Direction.ASC, size = 20) Pageable page,
 			PagedResourcesAssembler<Series> assembler) {
 		LOG.error("GET /series");
 		return assembler.toResource(series.findAll(page), this.assembler);
