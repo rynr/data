@@ -22,7 +22,7 @@ import java.util.UUID;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DataService.class)
 @WebAppConfiguration
-public class SeriesResourceIntegrationTest {
+public class SeriesControllerIntegrationTest {
 
 	@Autowired
 	private WebApplicationContext wac;
