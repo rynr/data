@@ -1,4 +1,4 @@
-package org.rjung.data.resources;
+package org.rjung.data.controller;
 
 import org.rjung.data.errors.ErrorMessage;
 import org.slf4j.Logger;
@@ -13,8 +13,8 @@ import javax.validation.ConstraintViolationException;
 
 @RestController
 @ControllerAdvice
-public class ExceptionResource {
-	final static Logger LOG = LoggerFactory.getLogger(ExceptionResource.class);
+public class ExceptionController {
+	final static Logger LOG = LoggerFactory.getLogger(ExceptionController.class);
 
 	@ExceptionHandler({ Exception.class })
 	@ResponseStatus(value = HttpStatus.CONFLICT)

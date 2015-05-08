@@ -1,4 +1,4 @@
-package org.rjung.data.resources;
+package org.rjung.data.controller;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -26,14 +26,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
-public class DataResource {
+public class DataController {
 	public static final Logger LOG = LoggerFactory
-			.getLogger(DataResource.class);
+			.getLogger(DataController.class);
 	DataRepository data;
 	SeriesRepository series;
 
 	@Autowired
-	public DataResource(DataRepository data, SeriesRepository series) {
+	public DataController(DataRepository data, SeriesRepository series) {
 		this.data = data;
 		this.series = series;
 	}
@@ -47,7 +47,7 @@ public class DataResource {
 		PagedResources<Resource<Data>> resources = assembler.toResource(data
 				.findBySeriesName(series, page));
 		resources.add(linkTo(
-				methodOn(SeriesResource.class).getSeriesIndex(null, null))
+				methodOn(SeriesController.class).getSeriesIndex(null, null))
 				.withRel("up"));
 		return resources;
 	}

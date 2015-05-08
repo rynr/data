@@ -1,4 +1,4 @@
-package org.rjung.data.resources;
+package org.rjung.data.controller;
 
 import org.rjung.data.assembler.SeriesResourceAssembler;
 import org.rjung.data.errors.ErrorMessage;
@@ -25,14 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.SQLException;
 
 @RestController
-public class SeriesResource {
+public class SeriesController {
 	public static final Logger LOG = LoggerFactory
-			.getLogger(SeriesResource.class);
+			.getLogger(SeriesController.class);
 	SeriesRepository series;
 	SeriesResourceAssembler assembler;
 
 	@Autowired
-	public SeriesResource(SeriesRepository series,
+	public SeriesController(SeriesRepository series,
 			SeriesResourceAssembler assembler) {
 		this.series = series;
 		this.assembler = assembler;
