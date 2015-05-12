@@ -1,9 +1,9 @@
 package org.rjung.data.controller;
 
-import org.rjung.data.assembler.SeriesResourceAssembler;
 import org.rjung.data.errors.ErrorMessage;
 import org.rjung.data.object.Series;
 import org.rjung.data.repository.SeriesRepository;
+import org.rjung.data.resource.SeriesResourceAssembler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
